@@ -9,8 +9,22 @@
     tools:context=".MainActivity" >
 
     <TextView
+        android:id="@+id/TextView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="97dp"
         android:text="@string/hello_world" />
+
+    <Button
+        android:id="@+id/fetch_data_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        
+        android:layout_marginTop="24dp"
+        android:text="@string/fetch_data_btn" />
 
 </RelativeLayout>
