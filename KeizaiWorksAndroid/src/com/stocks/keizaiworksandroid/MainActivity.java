@@ -99,16 +99,22 @@ public class MainActivity extends Activity {
     	        }
 
     	String[] stockName;
+    	String[] stockStats;
     	try{
     	      jArray = new JSONArray(result);
     	      stockName = new String[jArray.length()];
+    	      stockStats = new String[jArray.length()];
     	      jArray.length();
     	      JSONObject json_data=null;
     	      for(int i=0;i<jArray.length();i++){
     	             json_data = jArray.getJSONObject(i);
     	             stockName[i] = json_data.getString("stockName");
+    	             stockStats[i] = json_data.getString("stockStats");
     	         }
-    	      textView.setText(stockName[0]);
+    	      textView.setText("");
+    	      for (int i=0;i<jArray.length();i++){
+    	    	  textView.append(stockName[i] +": "+ stockStats[i]+"\n");
+    	      }
     	      }
     	      catch(JSONException e1){
     	       Toast.makeText(getBaseContext(), "No Data Found" ,Toast.LENGTH_LONG).show();
