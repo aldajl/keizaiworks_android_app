@@ -1,0 +1,78 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" 
+    android:layout_height="match_parent"
+    android:background="@color/app_background_color">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="418dp"
+    android:background="@color/app_background_color" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="220dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/app_title_image_conDesc"
+        android:src="@drawable/keizaiworksdroidbanner" />
+    
+    <TextView
+        android:id="@+id/login_usr_lbl"
+        android:labelFor="@+id/login_usr_edt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="31dp"
+        android:text="@string/login_usr_lbl"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <EditText
+        android:id="@+id/login_usr_edt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/login_usr_lbl"
+        android:ems="10"
+        android:inputType="text" >
+
+    </EditText>
+    
+    <TextView
+        android:id="@+id/login_psw_lbl"
+        android:labelFor="@+id/login_psw_edt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/login_usr_lbl"
+        android:layout_below="@id/login_usr_edt"
+        android:layout_marginTop="29dp"
+        android:text="@string/login_psw_lbl"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <EditText
+        android:id="@+id/login_psw_edt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/login_psw_lbl"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+
+    
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:text="@string/login_btn" />
+
+</RelativeLayout>
+</ScrollView>

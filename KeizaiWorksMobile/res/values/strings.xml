@@ -9,7 +9,9 @@
 	<color name="app_background_color">#19B7F7</color>
 	<string name="app_title_image_conDesc">Keizai Works Android app title</string>
 	<string name="fetch_data_label">Fetch National Data</string>
-    <string name="Fragment2">This is Fragment 2</string>
-    <string name="Fragment3">This is Fragment 3</string>
+    <color name="stats_bg_color">#ececec</color>
+    <string name="login_usr_lbl">Username</string>
+    <string name="login_psw_lbl">password</string>
+    <string name="login_btn">Login</string>
  
 </resources>

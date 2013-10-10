@@ -3,9 +3,10 @@
     android:layout_width="match_parent" 
     android:layout_height="match_parent"
     android:background="@color/app_background_color">
-<RelativeLayout 
+
+<RelativeLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="229dp"
     android:background="@color/app_background_color" >
 
     <ImageView
@@ -16,42 +17,25 @@
         android:layout_alignParentTop="true"
         android:contentDescription="@string/app_title_image_conDesc"
         android:src="@drawable/keizaiworksdroidbanner" />
-
-    <TextView
-        android:id="@+id/appDesc"
+    
+     <Button
+        android:id="@+id/local_fetch_data_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/imageView1"
-        android:text="@string/app_desc"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    <TextView
-        android:id="@+id/fetch_data_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/appDesc"
-        android:text="@string/fetch_data_label" />
-
-    <Button
-        android:id="@+id/national_fetch_data_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/fetch_data_label"
         android:text="@string/fetch_data_btn" />
 
     <TableLayout
-        android:id="@+id/national_stats_table"
+        android:id="@+id/local_stats_table"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/national_fetch_data_btn" >
+        android:layout_below="@+id/local_fetch_data_btn" >
         
         <TableRow 
             tools:ignore="UselessParent"
-            android:id="@+id/national_stats_table_row"
+            android:id="@+id/local_stats_table_row"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

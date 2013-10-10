@@ -1,9 +1,9 @@
 package keizai.works.mobile;
 
 /*
- * NationalTab.java
+ * LocalTab.java
  * created by: Joshua Alday
- * description: This class creates the National Tab and displays information on stocks
+ * description: This class creates the Local Tab and displays information on stocks
  */
 
 import java.io.BufferedInputStream;
@@ -35,24 +35,24 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class NationalTab extends Fragment implements ActionBar.TabListener {
+public class LocalTab extends Fragment implements ActionBar.TabListener {
  
     private Fragment mFragment;
     TableLayout statsTable;//Will be used to create Table that will display Stock info
     URL url;//Will be used to get JSON Data
     DatabaseHandler db;//Will be used to update Database
-    String tabContextRef = "national";//Will be used to know which stocks to pull from
+    String tabContextRef = "japan";//Will be used to know which stocks to pull from
  
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActivity().setContentView(R.layout.national_layout);//Use national_layout as tab layout
+        getActivity().setContentView(R.layout.local_layout);//Use national_layout as tab layout
         
-        statsTable = (TableLayout) getActivity().findViewById(R.id.national_stats_table);//Will be used to add/edit table
+        statsTable = (TableLayout) getActivity().findViewById(R.id.local_stats_table);//Will be used to add/edit table
         db = new DatabaseHandler(getActivity());//Gets the current Database to update
         postStockData(tabContextRef);//create tables with info in db
         
-        final Button fetchDataBtn = (Button)getActivity().findViewById(R.id.national_fetch_data_btn);//Fetch button to update db and post new data
+        final Button fetchDataBtn = (Button)getActivity().findViewById(R.id.local_fetch_data_btn);//Fetch button to update db and post new data
         fetchDataBtn.setOnClickListener(new View.OnClickListener() {
     		
     		@Override
@@ -65,7 +65,7 @@ public class NationalTab extends Fragment implements ActionBar.TabListener {
  
     //!! Start Auxiliary Functions
     public void onTabSelected(Tab tab, FragmentTransaction ft) {
-        mFragment = new NationalTab();
+        mFragment = new LocalTab();
         ft.add(android.R.id.content, mFragment);
         ft.attach(mFragment);
     }
@@ -147,12 +147,6 @@ public class NationalTab extends Fragment implements ActionBar.TabListener {
 	    	        stockParent[i] = json_data.getString("stockParent");
 	    	    }
 	    	    
-	    	    //update database
-	    	    List<Stock> stocks = db.getStocks();
-	    	    for (int x=0;x<jArray.length();x++){
-	    	    	db.updateStock(new Stock(stocks.get(x).getId(), stockName[x], stockFrom[x], stockParent[x], stockStats[x]));
-	    	    }
-	    	    
 	    	    //adding title rows
 	    	    TableRow titleRow = new TableRow(getActivity());
 	    	      
@@ -169,6 +163,12 @@ public class NationalTab extends Fragment implements ActionBar.TabListener {
 	    	    titleRow.addView(titStat);
 	    	      
 	    	    statsTable.addView(titleRow);
+	    	    
+	    	    //update database
+	    	    List<Stock> stocks = db.getStocks();
+	    	    for (int i=0;i<jArray.length();i++){
+	    	    	db.updateStock(new Stock(stocks.get(i).getId(), stockName[i], stockFrom[i], stockParent[i], stockStats[i]));
+	    	    }
 	    	    
 	    	    //post new stocks in table
 	    	    postStockData(tabContextRef);
