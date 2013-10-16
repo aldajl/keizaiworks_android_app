@@ -13,5 +13,6 @@
     <string name="login_usr_lbl">Username</string>
     <string name="login_psw_lbl">password</string>
     <string name="login_btn">Login</string>
+    <string name="userName">null</string>
  
 </resources>

@@ -1,16 +1,24 @@
 package keizai.works.mobile;
 
+/*
+ * Stock.java
+ * created by: Joshua Alday
+ * description: Class to handle stock information
+ */
+
 public class Stock {
-	private int id;
-	private String name;
-	private String from;
-	private String parent;
-	private String stat;
+	private int id;		//Will be used to reference position
+	private String name;	//Will be used to reference name
+	private String from;	//Will be used to reference location
+	private String parent;	//Will be used to reference source
+	private String stat;	//Will be used to reference Quote
 	
+	//basic constructor
 	public Stock(){
 		
 	}
 	
+	//constructor, include essential items
 	public Stock(String name, String from, String parent, String stat){
 		this.name = name;
 		this.from = from;
@@ -18,6 +26,7 @@ public class Stock {
 		this.stat = stat;
 	}
 	
+	//constructor, include all items
 	public Stock(int id, String name, String from, String parent, String stat){
 		this.id = id;
 		this.name = name;
@@ -45,4 +54,4 @@ public class Stock {
 	public String getStat(){
 		return stat;
 	}
-}
+}//end Stock.java

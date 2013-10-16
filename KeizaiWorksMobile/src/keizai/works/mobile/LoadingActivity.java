@@ -30,8 +30,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 
 public class LoadingActivity extends Activity {
-    DatabaseHandler db;//Will be used to create/insert database
-    URL url;//URL to get JSON Data
+    DatabaseHandler db;		//Will be used to create/insert database
+    URL url;				//URL to get JSON Data
  
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,9 @@ public class LoadingActivity extends Activity {
         
         //**Setting up Database and updating**
         db = new DatabaseHandler(this);
-        db.deleteStock();//this will make sure old data is deleted
+        db.createStock();
+        db.deleteStocks();				//this will make sure old data is deleted
+        
         
         //create Database
         try {
@@ -75,7 +77,7 @@ public class LoadingActivity extends Activity {
             super.onPreExecute();
 
             mDialog = new ProgressDialog(LoadingActivity.this);
-            mDialog.setMessage("Please wait...");
+            mDialog.setMessage("Fetching Stock Data...");
             mDialog.show();
         }
 
@@ -144,20 +146,20 @@ public class LoadingActivity extends Activity {
             startActivity(i);
 	    	mDialog.dismiss();
 	    }//end onPostExecute
-
-	    //readStream is a support function for getStockStats thread
-	    private String readStream(InputStream in) {
-			try {
-			      ByteArrayOutputStream bo = new ByteArrayOutputStream();
-			      int i = in.read();
-			      while(i != -1) {
-			        bo.write(i);
-			        i = in.read();
-			      }
-			      return bo.toString();
-			} catch (IOException e) {
-			    return "";
-			}
-		}//end readStream
 	}//end getStockStats AsyncTask
-}
+    
+    //readStream is a support function for getStockStats thread
+    private String readStream(InputStream in) {
+		try {
+		      ByteArrayOutputStream bo = new ByteArrayOutputStream();
+		      int i = in.read();
+		      while(i != -1) {
+		        bo.write(i);
+		        i = in.read();
+		      }
+		      return bo.toString();
+		} catch (IOException e) {
+		    return "";
+		}
+	}//end readStream
+}//end LoadingActivity.java

@@ -13,21 +13,18 @@ public class SearchTab extends Fragment implements ActionBar.TabListener {
    @Override
    public void onCreate(Bundle savedInstanceState) {
        super.onCreate(savedInstanceState);
-       // Get the view from fragment3.xml
        getActivity().setContentView(R.layout.search_layout);
    }
 
    public void onTabSelected(Tab tab, FragmentTransaction ft) {
        // TODO Auto-generated method stub
        mFragment = new SearchTab();
-       // Attach fragment3.xml layout
        ft.add(android.R.id.content, mFragment);
        ft.attach(mFragment);
    }
 
    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
        // TODO Auto-generated method stub
-       // Remove fragment3.xml layout
        ft.remove(mFragment);
    }
 
